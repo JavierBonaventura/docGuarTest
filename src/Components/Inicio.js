@@ -17,6 +17,7 @@ function Inicio() {
       })
       .catch(error => {
         console.error('There was a problem with the fetch operation:');
+        response.text().then(text => console.log(text));
       });
   }, []);
 
