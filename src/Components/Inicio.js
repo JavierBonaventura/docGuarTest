@@ -5,26 +5,29 @@ function Inicio() {
 
   useEffect(() => {
     fetch('/api/v1/users')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setUserData(data);
-        console.log(data)
-      })
-      .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-      });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      setUserData(data);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+      // Agregar una consola para ver el contenido de la respuesta en caso de error
+      response.text().then(text => console.log(text));
+    });
+  
   }, []);
 
   return (
     <div>
       <h2>Inicio</h2>
       <p>Muestra json</p>
-      {/* {userData && (
+      {/* {userData && (y
+
         <div>
           <h3>Usuarios:</h3>
           <ul>
