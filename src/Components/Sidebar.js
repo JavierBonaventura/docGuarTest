@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
-    <div style={{ width: '200px', background: '#f0f0f0' }}>
+    <div style={{ width: '200px', background: '#f0a0f0' }}>
       <h3>Sidebar</h3>
       <ul>
         <li><Link to="/usuarios">Usuarios</Link></li>
