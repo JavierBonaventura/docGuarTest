@@ -4,10 +4,26 @@ function Inicio() {
   const [userData, setUserData] = useState(null);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [roles, setRoles] = useState([]);
 
 
 
   useEffect(() => {
+
+    fetch('/api/v1/roles')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      setRoles(data);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:');
+    });
+
     fetch('/api/v1/users')
       .then(response => {
         if (!response.ok) {
@@ -24,6 +40,12 @@ function Inicio() {
         
       });
   }, []);
+
+
+  const getRoleIdFromRoleName = (roleId) => {
+    const role = roles.find((r) => r.roleid === roleId);
+    return role ? role.rolename : "Unknown";
+  };
 
   const [formData, setFormData] = useState({
     username: '',
@@ -59,6 +81,12 @@ const handleSubmit = async (e) => {
       console.error('Error during login:', error);
   }
 };
+
+
+
+// cod nuevo
+
+
 
   return (
     <div>
@@ -106,10 +134,29 @@ const handleSubmit = async (e) => {
                             </div>
                         </form>
 
-      {userData && (
+                        {userData && roles && (
         <div>
           <h3>Resultado:</h3>
-          <p>{JSON.stringify(userData)}</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Role ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userData.map((user, index) => (
+                <tr key={index}>
+                  <td>{user.name}</td>
+                  <td>{user.lastname}</td>
+                  <td>{user.email}</td>
+                  <td>{getRoleIdFromRoleName(user.roleid)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
     </div>
