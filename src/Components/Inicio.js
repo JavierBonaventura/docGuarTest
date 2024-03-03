@@ -24,7 +24,7 @@ function Inicio() {
 
   return (
     <div>
-      <h2>Inicio</h2>
+      <h2>Inicio1</h2>
       <p>Muestra json</p>
       {/* {userData && (y
 
