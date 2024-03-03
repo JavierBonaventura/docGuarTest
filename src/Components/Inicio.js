@@ -23,8 +23,8 @@ function Inicio() {
   return (
     <div>
       <h2>Inicio</h2>
-      <p>Bienvenido a la página de inicio</p>
-      {userData && (
+      <p>Muestra json</p>
+      {/* {userData && (
         <div>
           <h3>Usuarios:</h3>
           <ul>
@@ -33,7 +33,7 @@ function Inicio() {
             ))}
           </ul>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
