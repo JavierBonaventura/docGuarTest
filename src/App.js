@@ -4,6 +4,7 @@ import Sidebar from './Components/Sidebar';
 import NavBar from './Components/NavBar';
 import Usuarios from './Components/Usuarios';
 import Productos from './Components/Productos';
+import Inicio from './Components/Inicio'
 
 function App() {
   return (
@@ -25,13 +26,13 @@ function App() {
   );
 }
 
-function Inicio() {
-  return (
-    <div>
-      <h2>Inicio</h2>
-      <p>Bienvenido a la página de inicio</p>
-    </div>
-  );
-}
+// function Inicio() {
+//   return (
+//     <div>
+//       <h2>Inicio</h2>
+//       <p>Bienvenido a la página de inicio</p>
+//     </div>
+//   );
+// }
 
 export default App;
