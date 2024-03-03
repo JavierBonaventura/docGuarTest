@@ -1,5 +1,5 @@
 {
     "rewrites": [
-      { "source": "/api/v1/users", "destination": "http://68.183.126.136:36245/api/v1/users" }
+      { "source": "/api/v1/", "destination": "http://68.183.126.136:36245/api/v1/" }
     ]
   }
